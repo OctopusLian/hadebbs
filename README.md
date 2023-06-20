@@ -6,3 +6,6 @@
 - MySQL  
 - Vue  
 
+## 参考  
+
+[hade框架官网](http://hade.funaio.cn/)  
