@@ -17,14 +17,15 @@ type Context struct {
 	request        *http.Request
 	responseWriter http.ResponseWriter
 	ctx            context.Context
+	// 是否超时标记位
+	hasTimeout bool
+	writerMux  *sync.Mutex
+
 	// 当前请求的handler链条
 	handlers []ControllerHandler
 	index    int // 当前请求调用到调用链的哪个节点
 
-	// 是否超时标记位
-	hasTimeout bool
-	// 写保护机制
-	writerMux *sync.Mutex
+	params map[string]string // url路由匹配的参数
 }
 
 func NewContext(r *http.Request, w http.ResponseWriter) *Context {
@@ -62,6 +63,11 @@ func (ctx *Context) HasTimeout() bool {
 // 为context设置handlers
 func (ctx *Context) SetHandlers(handlers []ControllerHandler) {
 	ctx.handlers = handlers
+}
+
+// 设置参数
+func (ctx *Context) SetParams(params map[string]string) {
+	ctx.params = params
 }
 
 // 核心函数，调用context的下一个函数
