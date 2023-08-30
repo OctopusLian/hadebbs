@@ -3,31 +3,31 @@ package main
 import "hadebbs/framework"
 
 func SubjectAddController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectAddController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
 
 func SubjectListController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectListController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
 
 func SubjectDelController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectDelController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
 
 func SubjectUpdateController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectUpdateController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
 
 func SubjectGetController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectGetController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
 
 func SubjectNameController(c *framework.Context) error {
-	c.Json(200, "ok, SubjectNameController")
+	c.SetStatus(200).Json("ok, SubjectAddController")
 	return nil
 }
