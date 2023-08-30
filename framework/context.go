@@ -196,14 +196,18 @@ func (ctx *Context) FormAll() map[string][]string {
 
 // #region application/json post
 
+// 将 body 文本解析到 obj 结构体中
 func (ctx *Context) BindJson(obj interface{}) error {
 	if ctx.request != nil {
-		body, err := ioutil.ReadAll(ctx.request.Body)
+		// 读取文本
+		body, err := ioutil.ReadAll(ctx.request.Body) // request.Body 的读取是一次性的，读取一次之后，下个逻辑再去 request.Body 中是读取不到数据内容的
 		if err != nil {
 			return err
 		}
+		// 重新填充 request.Body，为后续的逻辑二次读取做准备
 		ctx.request.Body = ioutil.NopCloser(bytes.NewBuffer(body))
 
+		// 解析到 obj 结构体中
 		err = json.Unmarshal(body, obj)
 		if err != nil {
 			return err
