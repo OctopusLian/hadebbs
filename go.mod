@@ -16,6 +16,14 @@ require (
 )
 
 require (
+	github.com/cpuguy83/go-md2man/v2 v2.0.0
+	github.com/inconshreveable/mousetrap v1.0.0
+	github.com/spf13/pflag v1.0.5
+	github.com/spf13/viper v1.8.1
+	gopkg.in/yaml.v2 v2.4.0
+)
+
+require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
