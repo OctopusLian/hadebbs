@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"hadebbs/framework/pflag"
+	"github.com/spf13/pflag"
 )
 
 // Annotations for Bash completion.

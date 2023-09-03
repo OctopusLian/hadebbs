@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"hadebbs/framework/pflag"
+	"github.com/spf13/pflag"
 )
 
 func emptyRun(*Command, []string) {}
