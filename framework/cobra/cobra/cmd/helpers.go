@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/spf13/cobra"
+	"hadebbs/framework/cobra"
 )
 
 var srcPaths []string

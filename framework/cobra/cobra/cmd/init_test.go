@@ -17,7 +17,7 @@ func getProject() *Project {
 		Legal:        getLicense(),
 		Copyright:    copyrightLine(),
 		AppName:      "testproject",
-		PkgName:      "github.com/spf13/testproject",
+		PkgName:      "hadebbs/framework/testproject",
 		Viper:        true,
 	}
 }
@@ -39,19 +39,19 @@ func TestGoldenInitCmd(t *testing.T) {
 		{
 			name:      "successfully creates a project with name",
 			args:      []string{"testproject"},
-			pkgName:   "github.com/spf13/testproject",
+			pkgName:   "hadebbs/framework/testproject",
 			expectErr: false,
 		},
 		{
 			name:      "returns error when passing an absolute path for project",
 			args:      []string{dir},
-			pkgName:   "github.com/spf13/testproject",
+			pkgName:   "hadebbs/framework/testproject",
 			expectErr: true,
 		},
 		{
 			name:      "returns error when passing a relative path for project",
-			args:      []string{"github.com/spf13/testproject"},
-			pkgName:   "github.com/spf13/testproject",
+			args:      []string{"hadebbs/framework/testproject"},
+			pkgName:   "hadebbs/framework/testproject",
 			expectErr: true,
 		},
 	}

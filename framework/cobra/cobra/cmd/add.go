@@ -18,7 +18,7 @@ import (
 	"os"
 	"unicode"
 
-	"github.com/spf13/cobra"
+	"hadebbs/framework/cobra"
 )
 
 var (
@@ -65,7 +65,7 @@ Example: cobra add server -> resulting in a new cmd/server.go`,
 )
 
 func init() {
-	addCmd.Flags().StringVarP(&packageName, "package", "t", "", "target package name (e.g. github.com/spf13/hugo)")
+	addCmd.Flags().StringVarP(&packageName, "package", "t", "", "target package name (e.g. hadebbs/framework/hugo)")
 	addCmd.Flags().StringVarP(&parentName, "parent", "p", "rootCmd", "variable name of parent command for this command")
 	cobra.CheckErr(addCmd.Flags().MarkDeprecated("package", "this operation has been removed."))
 }
@@ -73,7 +73,7 @@ func init() {
 // validateCmdName returns source without any dashes and underscore.
 // If there will be dash or underscore, next letter will be uppered.
 // It supports only ASCII (1-byte character) strings.
-// https://github.com/spf13/cobra/issues/269
+// https://hadebbs/framework/cobra/issues/269
 func validateCmdName(source string) string {
 	i := 0
 	l := len(source)
