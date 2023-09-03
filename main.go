@@ -2,8 +2,7 @@ package main
 
 import (
 	"context"
-	"hadebbs/framework"
-	"hadebbs/framework/middleware"
+	"hadebbs/framework/gin"
 	"log"
 	"net/http"
 	"os"
@@ -13,9 +12,9 @@ import (
 )
 
 func main() {
-	core := framework.NewCore()
+	core := gin.New()
 
-	core.Use(middleware.Recovery())
+	core.Use(gin.Recovery())
 
 	registerRouter(core)
 	server := &http.Server{
