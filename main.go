@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"hadebbs/framework/gin"
+	"hadebbs/provider/demo"
 	"log"
 	"net/http"
 	"os"
@@ -12,7 +13,10 @@ import (
 )
 
 func main() {
+	// 创建engine结构
 	core := gin.New()
+	// 绑定具体的服务
+	core.Bind(&demo.DemoServiceProvider{})
 
 	core.Use(gin.Recovery())
 
