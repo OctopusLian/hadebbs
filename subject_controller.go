@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"hadebbs/app/provider/demo"
 	"hadebbs/framework/gin"
-	"hadebbs/provider/demo"
 )
 
 func SubjectAddController(c *gin.Context) {
