@@ -6,7 +6,6 @@ require github.com/spf13/cast v1.5.1
 
 require (
 	github.com/gin-contrib/sse v0.1.0
-	github.com/gin-gonic/gin v1.9.1
 	github.com/go-playground/validator/v10 v10.14.0
 	github.com/golang/protobuf v1.5.0
 	github.com/json-iterator/go v1.1.12
