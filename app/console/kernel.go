@@ -2,6 +2,7 @@ package console
 
 import (
 	"hadebbs/app/console/command/demo"
+	"hadebbs/app/console/command/foo"
 	"hadebbs/framework"
 	"hadebbs/framework/cobra"
 	"hadebbs/framework/command"
@@ -39,6 +40,7 @@ func RunCommand(container framework.Container) error {
 
 // 绑定业务的命令
 func AddAppCommand(rootCmd *cobra.Command) {
-	//  demo 例子
-	rootCmd.AddCommand(demo.InitFoo())
+	rootCmd.AddCommand(foo.FooCommand)
+	// 每秒调用一次Foo命令
+	rootCmd.AddCronCommand("* * * * * *", demo.FooCommand)
 }
