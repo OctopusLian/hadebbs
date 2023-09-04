@@ -1,5 +1,5 @@
 package test
 
-const (
+var (
 	BasePath = "/Users/Documents/workspace/hadebbs/"
 )
