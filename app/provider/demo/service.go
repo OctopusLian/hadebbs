@@ -1,32 +1,36 @@
 package demo
 
 import (
-	"fmt"
 	"hadebbs/framework"
 )
 
 // 具体的接口实例
-type DemoService struct {
-	// 实现接口
-	Service
-
-	// 参数
-	c framework.Container
+type Service struct {
+	container framework.Container
 }
 
 // 初始化实例的方法
-func NewDemoService(params ...interface{}) (interface{}, error) {
-	// 这里需要将参数展开
-	c := params[0].(framework.Container)
+func NewService(params ...interface{}) (interface{}, error) {
+	container := params[0].(framework.Container)
+	return &Service{container: container}, nil
+}
 
-	fmt.Println("new demo service")
-	// 返回实例
-	return &DemoService{c: c}, nil
+// Demo服务接口定义的一个数据结构
+type Student struct {
+	ID   int
+	Name string
 }
 
 // 实现接口
-func (s *DemoService) GetFoo() Foo {
-	return Foo{
-		Name: "i am foo",
+func (s *Service) GetAllStudent() []Student {
+	return []Student{
+		{
+			ID:   1,
+			Name: "foo",
+		},
+		{
+			ID:   2,
+			Name: "bar",
+		},
 	}
 }
