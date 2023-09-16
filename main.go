@@ -5,6 +5,7 @@ import (
 	"hadebbs/app/http"
 	"hadebbs/framework"
 	"hadebbs/framework/provider/app"
+	"hadebbs/framework/provider/cache"
 	"hadebbs/framework/provider/config"
 	"hadebbs/framework/provider/distributed"
 	"hadebbs/framework/provider/env"
@@ -12,6 +13,7 @@ import (
 	"hadebbs/framework/provider/kernel"
 	"hadebbs/framework/provider/log"
 	"hadebbs/framework/provider/orm"
+	"hadebbs/framework/provider/redis"
 	"hadebbs/framework/provider/trace"
 )
 
@@ -28,6 +30,8 @@ func main() {
 	container.Bind(&trace.HadeTraceProvider{})
 	container.Bind(&log.HadeLogServiceProvider{})
 	container.Bind(&orm.GormProvider{})
+	container.Bind(&redis.RedisProvider{})
+	container.Bind(&cache.HadeCacheProvider{})
 
 	// 将HTTP引擎初始化,并且作为服务提供者绑定到服务容器中
 	if engine, err := http.NewHttpEngine(); err == nil {
