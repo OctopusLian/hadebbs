@@ -40,6 +40,7 @@ type devConfig struct {
 
 // 初始化配置文件
 func initDevConfig(c framework.Container) *devConfig {
+	// 设置默认值
 	devConfig := &devConfig{
 		Port: "8087",
 		Backend: struct {
@@ -57,7 +58,10 @@ func initDevConfig(c framework.Container) *devConfig {
 			"8071",
 		},
 	}
+	// 容器中获取配置服务
 	configer := c.MustMake(contract.ConfigKey).(contract.Config)
+
+	// 每个配置项进行检查
 	if configer.IsExist("app.dev.port") {
 		devConfig.Port = configer.GetString("app.dev.port")
 	}
@@ -67,6 +71,8 @@ func initDevConfig(c framework.Container) *devConfig {
 	if configer.IsExist("app.dev.backend.port") {
 		devConfig.Backend.Port = configer.GetString("app.dev.backend.port")
 	}
+
+	// monitorFolder 默认使用目录服务的AppFolder()
 	monitorFolder := configer.GetString("app.dev.backend.monitor_folder")
 	if monitorFolder == "" {
 		appService := c.MustMake(contract.AppKey).(contract.App)
