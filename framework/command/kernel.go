@@ -20,4 +20,8 @@ func AddKernelCommands(root *cobra.Command) {
 	root.AddCommand(npmCommand)
 	// dev 调试命令
 	root.AddCommand(initDevCommand())
+	// provider一级命令
+	root.AddCommand(initProviderCommand())
+	// middleware
+	root.AddCommand(initMiddlewareCommand())
 }
