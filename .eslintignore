@@ -1,0 +1,5 @@
+/hade/build/
+/hade/config/
+/dist/
+/*.js
+/hade/test/unit/coverage/
